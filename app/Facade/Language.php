@@ -8,7 +8,11 @@ class Language extends Facade
 {
   public static function newInstance()
   {
-    return new LanguageService(config('app.language'));
+    $config = [
+      'language' => config('app.language'),
+      'language_files' => config('locations.languages')
+    ];
+    return new LanguageService($config);
   }
   public static function translate($phrase, $default = null)
   {

@@ -13,7 +13,7 @@ class Language
   public function __construct($configuration)
   {
     $this->language = $configuration['language'];
-	$this->location = $configuration['language_files'];
+    $this->location = $configuration['language_files'];
     $this->loadFiles();
   }
   protected function loadFiles()
