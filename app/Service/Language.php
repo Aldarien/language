@@ -16,6 +16,16 @@ class Language
     $this->location = $configuration['language_files'];
     $this->loadFiles();
   }
+  public function available()
+  {
+		$output = [];
+		$files = glob($this->location . '/' . $this->language . '/*.*');
+		foreach ($files as $file) {
+			$info = new \SplFileInfo($file);
+			$output []= $info->getBasename('.' . $info->getExtension());
+		}
+		return $output;
+  }
   protected function loadFiles()
   {
     $files = glob($this->location . '/' . $this->language . '/*.*');
