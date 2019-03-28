@@ -29,8 +29,8 @@ class Language
     $info = pathinfo($filename);
     switch ($info['extension']) {
       case 'yaml':
-		$filename = str_replace('yaml', 'yml', $filename);
-	  case 'yml':
+		    $filename = str_replace('yaml', 'yml', $filename);
+  	  case 'yml':
         return $this->loadYAML($filename);
       case 'json':
         return $this->loadJSON($filename);
@@ -69,7 +69,7 @@ class Language
     if (!isset($this->phrases[$phrase])) {
       if ($default == null) {
         if ($this->language != 'en') {
-			$configuration = ['language' => 'en', 'language_files' => $this->location];
+          $configuration = ['language' => 'en', 'language_files' => $this->location];
           $def = new Language($configuration);
           $t = $def->translate($phrase, '');
         } else {
